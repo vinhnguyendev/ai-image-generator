@@ -9,6 +9,7 @@ export { CreatePost } from './section/CreatePost'
 export { GetPosts } from './section/GetPosts'
 export { Copyright } from './section/Copyright'
 
+
 //routes export
 export { Home } from './routes/Home'
 export { Gallery } from './routes/Gallery'

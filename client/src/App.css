@@ -2,30 +2,29 @@
    border: none;
    margin: 0.7rem;
    position: relative;
-  
+   transition: ease-out 0.2s;
+   height: full;
+   width: full;
+   background-color: transparent;
 }
 
 #card:hover{
-    transform: scale(1.15);
+    transform: scale(1.05);
     z-index: 5;
+    cursor: pointer;
+}
+#card:hover #card-detail{
+    display: inline-flex;
+    width: fit-content;
 }
 
-#card:hover .card-detail{
+#card:hover #download-btn{
     display: flex;
-
+}
+#download-btn{
+    display: none;
 }
 
-.card-detail{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -10%);
-    height: full;
-    width: full;
-    background-color: aquamarine;
+#card-detail{
     display: none;
-    width: 90%;
-    height: 25%;
-    border-radius: 0.4rem;
-    
 }

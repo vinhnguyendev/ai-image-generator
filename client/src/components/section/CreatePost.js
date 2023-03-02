@@ -15,8 +15,8 @@ export function CreatePost() {
   const [loading, setLoading] = useState(false);
   const [imageSize, setImageSize] = useState("large");
   const [checked, setChecked] = useState(true)
+  
   useEffect(() => {
-    console.log(form.prompt);
   }, [form]);
 
   useEffect(() => {
@@ -58,8 +58,6 @@ export function CreatePost() {
 
   const handleAddPost = async (event) => {
     event.preventDefault();
-    console.log("Add btb");
-    console.log(form);
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
