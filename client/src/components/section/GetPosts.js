@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
 
+
 export function GetPosts() {
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
 
+  const styles = {
+    pin_container: {
+        gridTemplateColumns: 'repeat(auto-fill, 250px)',
+        gridAutoRows: '10px',
+    }
+}
   const Card = ({ prompt, photo }) => {
     return (
-      <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card">
-        <img
-          className="w-full h-auto object-cover rounded-xl"
-          src={photo}
-          alt={prompt}
-        />
+      <div  className="">
+        <div className="card" id="card">
+        <img className="w-auto h-auto rounded-4 img-fluid" src={photo} alt={prompt} />
+        <div className="card-detail">{prompt}</div>
+        </div>
       </div>
     );
   };
@@ -35,6 +41,7 @@ export function GetPosts() {
       });
       if (response.ok) {
         const result = await response.json();
+        console.log(result);
         setAllPosts(result.data.reverse());
       }
     } catch (error) {
@@ -49,8 +56,8 @@ export function GetPosts() {
   }, []);
 
   return (
-    <>
+    <div className="grid d-flex flex-wrap flex-row justify-content-center w-100 p-0 m-0" style={styles.pin_container}>
       <RenderCards data={allPosts} title="No Post yet" />
-    </>
+    </div>
   );
 }

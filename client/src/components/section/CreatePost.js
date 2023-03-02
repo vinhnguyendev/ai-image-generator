@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import preview from "../../assets/preview.png";
 
 export function CreatePost() {
@@ -8,16 +8,29 @@ export function CreatePost() {
   const [form, setForm] = useState({
     name: "",
     prompt: "",
+    size: "",
     photo: "",
   });
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [imageSize, setImageSize] = useState("small");
-
+  const [imageSize, setImageSize] = useState("large");
+  const [checked, setChecked] = useState(true)
   useEffect(() => {
     console.log(form.prompt);
-    console.log(form);
   }, [form]);
+
+  useEffect(() => {
+    const pixelSize =
+      imageSize === "small"
+        ? "256x256"
+        : imageSize === "medium"
+        ? "512x512"
+        : imageSize === "large"
+        ? "1024x1024"
+        : "Error with a image size";
+    setForm({ ...form, size: pixelSize });
+  }, [imageSize]);
+
 
   const generateImage = async (e) => {
     e.preventDefault();
@@ -29,7 +42,7 @@ export function CreatePost() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ prompt: form.prompt }),
+          body: JSON.stringify({ size: form.size, prompt: form.prompt }),
         });
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
@@ -45,8 +58,8 @@ export function CreatePost() {
 
   const handleAddPost = async (event) => {
     event.preventDefault();
-    console.log('Add btb')
-    console.log(form)
+    console.log("Add btb");
+    console.log(form);
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
@@ -58,11 +71,11 @@ export function CreatePost() {
           body: JSON.stringify({ ...form }),
         });
         await response.json();
-        navigate('/gallery')
+        navigate("/gallery");
       } catch (error) {
-        alert(error)
+        alert(error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
   };
@@ -76,11 +89,11 @@ export function CreatePost() {
   };
 
   return (
-    <section className="container">
+    <section className="container d-flex flex-column justify-content-evenly">
       <div className="row mb-3">
         <div className="col">
           <div
-            className="btn-group"
+            className="btn-group w-100"
             role="group"
             aria-label="Basic radio toggle button group"
           >
@@ -118,6 +131,7 @@ export function CreatePost() {
               autoComplete="off"
               value="large"
               onChange={handleChange}
+              defaultChecked = {imageSize == 'large'? checked : ''}
             />
             <label className="btn btn-outline-primary" htmlFor="btnradio3">
               Large
@@ -144,31 +158,34 @@ export function CreatePost() {
         </button>
       </div>
 
-      <div className="row my-5 d-flex justify-content-center">
+      <div className="row my-2 d-flex flex-column align-items-center">
         <div
-          className="position-relative d-flex flex-column justify-content-center"
+          id="img-div"
+          className="position-relative d-flex flex-column justify-content-center border border-light-subtle my-4 p-0 mx-0"
           style={
             imageSize === "small"
-              ? { height: "256px", width: "256px" }
+              ? { height: "auto", width: "25%" }
               : imageSize === "medium"
-              ? { height: "512px", width: "512px" }
+              ? { height: "auto", width: "50%" }
               : imageSize === "large"
-              ? { height: "1024px", width: "1024px" }
+              ? { height: "auto", width: "100%" }
               : ""
           }
         >
           {form.photo ? (
             <>
-            <img src={form.photo} alt={form.prompt} className="img-gluid" />
-            <div className="d-flex-inline flex-row mt-2">
-              <button className="btn btn-success m-1" type="button" onClick={handleAddPost}>
-              {loading? 'Adding to Gallery...': <i className="bi bi-plus-square"><i className="mx-1">Add to Gallery</i></i>  }
-              </button>
-              <button className="btn btn-primary m-1"><i className="bi bi-box-arrow-down mx-1"></i>Downdload</button>
-            </div>
+              <img
+                src={form.photo}
+                alt={form.prompt}
+                className="w-100 h-auto"
+              />
             </>
           ) : (
-            <img src={preview} alt="preview" className="img-fluid" />
+            <img
+              src={preview}
+              alt="preview"
+              className="w-100 h-auto mx-auto d-block"
+            />
           )}
 
           {generatingImg && (
@@ -179,8 +196,23 @@ export function CreatePost() {
             </div>
           )}
         </div>
+        {/* buttons */}
+        <div className="d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row mt-2 my-2 justify-content-center">
+          <button
+            className="btn btn-success m-1"
+            type="button"
+            onClick={handleAddPost}
+          >
+            {loading ? (
+              "Adding to Gallery..."
+            ) : (
+              <i className="bi bi-plus-square">
+                <i className="mx-1">Add to Gallery</i>
+              </i>
+            )}
+          </button>
+        </div>
       </div>
-            
     </section>
   );
 }

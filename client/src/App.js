@@ -7,16 +7,17 @@ import * as pages from './components'
 
 function App() {
   return (
-    <BrowserRouter>
-    <div className="App">
+      <BrowserRouter>
+    <div className="App text-center min-vh-100 d-flex flex-column position-relative ">
       <lay.NavigationBar/>
       <Routes>
       <Route path="/" element={<pages.Home/>}/>
       <Route path="/gallery" element={<pages.Gallery/>}/>
       <Route path="/about" element={<pages.About/>}/>
-      </Routes> 
+      </Routes>
     </div>
-    </BrowserRouter>
+      <lay.Footer/>
+      </BrowserRouter>
   );
 }
 

@@ -15,11 +15,12 @@ const openai = new OpenAIApi(configuration);
 router.route("/").post(async (req, res) => {
     console.log('DaLL-E POST ENDPOINT HIT!')
   try {
-    const { prompt } = req.body;
+    const { prompt, size } = req.body;
+    console.log(size)
     const openAiresponse = await openai.createImage({
       prompt,
       n: 1,
-      size: "512x512",
+      size,
       response_format: 'b64_json',
     });
     const image = openAiresponse.data.data[0].b64_json;
