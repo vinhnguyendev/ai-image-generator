@@ -195,6 +195,7 @@ export function CreatePost() {
           )}
         </div>
         {/* buttons */}
+        {form.photo? (
         <div className="d-flex flex-column flex-sm-row flex-md-row flex-lg-row flex-xl-row mt-2 my-2 justify-content-center">
           <button
             className="btn btn-success m-1"
@@ -210,6 +211,8 @@ export function CreatePost() {
             )}
           </button>
         </div>
+        )
+      : ''}
       </div>
     </section>
   );
