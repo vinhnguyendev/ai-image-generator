@@ -15,6 +15,7 @@ export function About() {
         button1Text="GET START NOW"
         button2Text="SIGN UP"
       />
+      <sec.ControlledCarousel/>
       <div>
         <sec.BlogCard
           title="Challenges in Finding the Right Image"

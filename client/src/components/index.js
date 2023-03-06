@@ -11,6 +11,8 @@ export { Copyright } from './section/Copyright'
 export { BlogCard } from './section/BlogCard'
 export { SectionDevider } from './section/SectionDevider'
 export { ContactForm } from './section/ContactForm'
+export { Card } from './section/Card'
+export { ControlledCarousel } from './section/ControlledCarousel'
 
 
 //routes export
