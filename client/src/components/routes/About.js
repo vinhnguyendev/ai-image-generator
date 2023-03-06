@@ -8,7 +8,7 @@ import step3 from "../../assets/step03.png";
 
 export function About() {
   return (
-    <div className="container justify-content-center ">
+    <div className="container justify-content-center px-0">
       <sec.Hero
         title="Unleash Your Creativity with the Power of AI-Generated Images!"
         hasButtons

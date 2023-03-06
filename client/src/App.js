@@ -8,7 +8,7 @@ import * as pages from './components'
 function App() {
   return (
       <BrowserRouter>
-    <div className="App text-center min-vh-100 d-flex flex-column position-relative ">
+    <div className="App container text-center min-vw-100 min-vh-100 d-flex flex-column position-relative ">
       <lay.NavigationBar/>
       <Routes>
       <Route path="/" element={<pages.Home/>}/>

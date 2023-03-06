@@ -6,7 +6,7 @@ export function Hero({
   button2Text,
 }) {
   return (
-    <section className="container my-5" id="hero">
+    <section className="container my-5 flex-col justify-content-center" id="hero">
       <div className="row">
         <div className="fs-1 fw-bold">{title}</div>
         {subtitle? (

@@ -1,23 +1,23 @@
 export function ContactForm() {
   return (
-    <form className="form card bg-light p-5 my-5">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">
+    <form className="form card bg-light p-3 my-5 text-start">
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlInput1" className="form-label">
           Email address
         </label>
         <input
           type="email"
-          class="form-control"
+          className="form-control"
           id="exampleFormControlInput1"
           placeholder="please enter your email"
         />
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">
+      <div className="mb-3">
+        <label htmlFor="exampleFormControlTextarea1" className="form-label">
           Message
         </label>
         <textarea
-          class="form-control"
+          className="form-control"
           id="exampleFormControlTextarea1"
           rows="3"
           placeholder="write your message here"

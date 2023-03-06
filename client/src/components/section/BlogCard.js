@@ -18,7 +18,7 @@ export function BlogCard({
     });
   }, []);
   return (
-    <div className="card mb-3" style={{backgroundColor: "rgba(0, 143, 239, 0.035)"}}>
+    <div className="card container mb-3" style={{backgroundColor: "rgba(0, 143, 239, 0.035)"}}>
       {reverse? (
         <div className="row gap-0">
             <div className="col-md-6 align-self-center text-start">
@@ -27,7 +27,7 @@ export function BlogCard({
               <p className="card-text fs-4 fw-light">{subtitle}</p>
             </div>
           </div>
-          <div className="col-md-6" data-aos="fade-left">
+          <div className="col-md-6" data-aos="fade-up">
             <img
               src={image ? image : preview}
               className="img-fluid rounded-start"
@@ -37,7 +37,7 @@ export function BlogCard({
         </div>
       ) : (
         <div className="row g-0">
-          <div className="col-md-6" data-aos="fade-right">
+          <div className="col-md-6" data-aos="fade-up">
             <img
               src={image ? image : preview}
               className="img-fluid rounded-start"
