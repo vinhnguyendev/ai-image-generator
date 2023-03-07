@@ -27,7 +27,7 @@ export function BlogCard({
               <p className="card-text fs-4 fw-light">{subtitle}</p>
             </div>
           </div>
-          <div className="col-md-6" data-aos="fade-up">
+          <div className="col-md-6" data-aos="fade-down">
             <img
               src={image ? image : preview}
               className="img-fluid rounded-start"
@@ -37,7 +37,7 @@ export function BlogCard({
         </div>
       ) : (
         <div className="row g-0">
-          <div className="col-md-6" data-aos="fade-up">
+          <div className="col-md-6" data-aos="fade-down">
             <img
               src={image ? image : preview}
               className="img-fluid rounded-start"

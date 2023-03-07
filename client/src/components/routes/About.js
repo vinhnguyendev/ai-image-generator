@@ -12,7 +12,7 @@ export function About() {
       <sec.Hero
         title="Unleash Your Creativity with the Power of AI-Generated Images!"
         hasButtons
-        button1Text="GET START NOW"
+        button1Text="GET STARTED NOW"
         button2Text="SIGN UP"
       />
       <sec.ControlledCarousel/>

@@ -13,7 +13,7 @@ export function ControlledCarousel() {
   };
 
   return (
-    <Carousel activeIndex={index} onSelect={handleSelect} className="py-5 mb-5 text-dark">
+    <Carousel activeIndex={index} onSelect={handleSelect} className="pb-5 mb-5 text-dark">
       <Carousel.Item>
       <sec.Card photo={image1} prompt="Dancing Mona Lisa" username="Jon Doe" />
       </Carousel.Item>
