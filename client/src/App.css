@@ -1,3 +1,5 @@
+
+
 #card{
    border: none;
    margin: 0.7rem;
@@ -24,5 +26,17 @@
 .carousel-indicators button{
     background-color: #0d6efd !important;
     color: #0d6efd !important;
+}
+
+#login-btn, #signup-btn{
+    transition: ease-out 0.3s;
+    background: none;
+}
+/* buttons */
+#login-btn:hover,#signup-btn:hover{
+    font-weight: bold;
+    transform: scale(1.02);
+    background-color: rgb(219, 219, 219);
+    
 }
 

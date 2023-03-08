@@ -1,4 +1,4 @@
-import Avvvatars from 'avvvatars-react'
+import * as sec from "../";
 
 export const Card = ({ prompt, photo, username, saveAs }) => {
 
@@ -7,15 +7,6 @@ export const Card = ({ prompt, photo, username, saveAs }) => {
     e.preventDefault();
     saveAs(photo, `${prompt}.png`);
   };
-
-
-
-function MyAvatar(username) {
-    console.log(username)
-    return (
-      <Avvvatars value={username.username} />
-    )
-  }
 
   return (
   
@@ -48,7 +39,7 @@ function MyAvatar(username) {
         >
           <div className="container flex-column w-100 p-3 text-start">
             <span className="fw-bold d-flex gap-2">
-            <MyAvatar username={username}/><span className='d-flex flex-column justify-content-center'>{username}</span>
+            <sec.Avatar username={username}/><span className='d-flex flex-column justify-content-center'>{username}</span>
             </span>
             <span className='ps-3 ms-3'>"{prompt}"</span>
           </div>

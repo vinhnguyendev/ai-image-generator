@@ -13,6 +13,8 @@ export { SectionDevider } from './section/SectionDevider'
 export { ContactForm } from './section/ContactForm'
 export { Card } from './section/Card'
 export { ControlledCarousel } from './section/ControlledCarousel'
+export { Avatar } from './section/Avatar'
+export { UserLogin } from './section/UserLogin'
 
 
 //routes export

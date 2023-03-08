@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import * as sec from "../";
 
 import { Link } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ export function NavigationBar() {
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`gallery`}>Gallery</Link>
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`about`}>About</Link>
           </Nav>
+          <Nav className=""><sec.UserLogin username="Test test"/></Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
