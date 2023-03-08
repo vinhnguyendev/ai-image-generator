@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export function NavigationBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="body" expand="lg" className='border-bottom p-3'>
       <Container>
         <Navbar.Brand className='fs-4 fw-bold' href="#home"><i className="bi bi-palette2 p-2"></i>pixolabAI</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

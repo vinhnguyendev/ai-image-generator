@@ -28,15 +28,29 @@
     color: #0d6efd !important;
 }
 
-#login-btn, #signup-btn{
+#login-btn, #signup-btn, #logout-btn{
     transition: ease-out 0.3s;
     background: none;
 }
 /* buttons */
-#login-btn:hover,#signup-btn:hover{
+#login-btn:hover,#signup-btn:hover,#logout-btn:hover{
     font-weight: bold;
     transform: scale(1.02);
-    background-color: rgb(219, 219, 219);
+   
     
 }
 
+
+@media screen and (max-width: 992px) {
+    /* Button styles only for collapsed navbar */
+    #login-nav{
+        color: #0d6efd;
+    }
+    #user-nav{
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        background: none;
+        margin-top: 2.2rem;
+    }
+}
