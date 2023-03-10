@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Avatar } from "./Avatar";
+import { Link } from 'react-router-dom';
+import Cookies from "universal-cookie";
 
-export function UserLogin(username) {
-  const [logedIn, setLogedIn] = useState(false);
+const cookies = new Cookies();
+
+export function UserLogin({logedIn}) {
+
   const [signingUp, setSigningUp] = useState(false);
   const [form, setForm] = useState({
     email: "test@test.com",
@@ -34,7 +38,7 @@ export function UserLogin(username) {
     <div id="login-nav" className="rounded-5">
       {logedIn ? (
         <div id="user-nav" className="d-flex flex-row">
-          <Avatar username="Jon Doe" />
+          <Avatar username={cookies.get("name")} />
           <span
             id="login_breaker"
             className="d-flex flex-column justify-content-center px-1"
@@ -48,24 +52,26 @@ export function UserLogin(username) {
         </div>
       ) : (
         <div className="d-flex flex-row justify-content-center">
-          <button
+          <Link
+            to={`/login`}
             id="login-btn"
-            className="border-0 rounded-5 px-2 py-1"
+            className="border-0 rounded-5 px-2 py-1 text-decoration-none text-dark"
             onClick={e => setSigningUp(false)}
           >
             Log In
-          </button>
+          </Link>
           <span className="d-flex flex-column justify-content-center px-1">
             {" "}
             |{" "}
           </span>
-          <button
+          <Link
+              to={`/register`}
             id="signup-btn"
-            className="border-0 rounded-5 px-2 py-1"
-            onClick={e => setSigningUp(true)}
+            className="border-0 rounded-5 px-2 py-1 text-decoration-none text-dark"
+            // onClick={e => setSigningUp(true)}
           >
             Sign Up
-          </button>
+          </Link>
         </div>
       )}
     </div>

@@ -15,9 +15,12 @@ export { Card } from './section/Card'
 export { ControlledCarousel } from './section/ControlledCarousel'
 export { Avatar } from './section/Avatar'
 export { UserLogin } from './section/UserLogin'
+export { LinksAuth } from './section/LinksAuth'
 
 
 //routes export
 export { Home } from './routes/Home'
 export { Gallery } from './routes/Gallery'
 export { About } from './routes/About'
+export { Login } from './routes/Login'
+export { Register } from './routes/Register'

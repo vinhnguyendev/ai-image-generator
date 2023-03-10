@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 import preview from "../../assets/preview.png";
+import Cookies from "universal-cookie";
+
+
+const cookies = new Cookies();
 
 export function CreatePost() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    name: "",
+    id: cookies.get("id"),
+    name: cookies.get("name"),
     prompt: "",
     size: "",
     photo: "",

@@ -1,6 +1,6 @@
 import * as sec from "../";
 
-export const Card = ({ prompt, photo, username, saveAs }) => {
+export const Card = ({ prompt, photo, name, saveAs }) => {
 
   //downloadBtnEvent  
   const downloadImage = (prompt, photo, e) => {
@@ -39,7 +39,7 @@ export const Card = ({ prompt, photo, username, saveAs }) => {
         >
           <div className="container flex-column w-100 p-3 text-start">
             <span className="fw-bold d-flex gap-2">
-            <sec.Avatar username={username}/><span className='d-flex flex-column justify-content-center'>{username}</span>
+            <sec.Avatar username={name}/>
             </span>
             <span className='ps-3 ms-3'>"{prompt}"</span>
           </div>

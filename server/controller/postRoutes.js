@@ -30,11 +30,12 @@ router.route("/").get(async(req,res) => {
 router.route("/").post(async (req, res) => {
   console.log('Mongodb POST End-point hit! ')
   try {
-    const { name,prompt,photo } = req.body;
+    const { id,name,prompt,photo } = req.body;
     const photoUrl = await cloudinary.uploader.upload(photo);
 
     const newPost = await Post.create({
-      name: 'Test',
+      userId:id,
+      name: name,
       prompt,
       photo: photoUrl.url,
     });

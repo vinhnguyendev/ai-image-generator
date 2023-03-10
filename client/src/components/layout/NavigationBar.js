@@ -5,7 +5,7 @@ import * as sec from "../";
 
 import { Link } from 'react-router-dom';
 
-export function NavigationBar() {
+export function NavigationBar({logedIn}) {
   return (
     <Navbar bg="body" expand="lg" className='border-bottom p-3'>
       <Container>
@@ -17,7 +17,7 @@ export function NavigationBar() {
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`gallery`}>Gallery</Link>
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`about`}>About</Link>
           </Nav>
-          <Nav className=""><sec.UserLogin username="Test test"/></Nav>
+          <Nav className=""><sec.UserLogin logedIn={logedIn}/></Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
