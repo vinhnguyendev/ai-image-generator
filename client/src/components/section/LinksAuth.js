@@ -6,9 +6,9 @@ import { useNavigate } from 'react-router-dom';
 
 const cookies = new Cookies();
 const expirationTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-const cookieOptions = { maxAge: expirationTime};
+const cookieOptions = { maxAge: expirationTime, path: '/'};
 
-export function LinksAuth({ setLogedIn }) {
+export function LinksAuth() {
   const navigate = useNavigate();
   //Sign in with google
   const googleProvider = new GoogleAuthProvider();
@@ -17,8 +17,7 @@ export function LinksAuth({ setLogedIn }) {
     try {
       console.log("Hi Google");
       const result = await signInWithPopup(auth, googleProvider);
-      setLogedIn(true);
-     
+    
       const { uid, email, displayName } = result.user;
       console.log(uid);
       console.log(email);

@@ -15,15 +15,15 @@ export function ControlledCarousel() {
   return (
     <Carousel activeIndex={index} onSelect={handleSelect} className="py-5 mb-5 text-dark">
       <Carousel.Item>
-      <sec.Card photo={image1} prompt="Dancing Mona Lisa" username="Jon Doe" />
+      <sec.Card photo={image1} prompt="Dancing Mona Lisa" name="John Doe" />
       </Carousel.Item>
 
       <Carousel.Item>
-      <sec.Card photo={image2} prompt="Winter bird in forest" username="Alan Walker"/>
+      <sec.Card photo={image2} prompt="Winter bird in forest" name="Alan Walker"/>
       </Carousel.Item>
 
       <Carousel.Item>
-       <sec.Card photo={image3} prompt="Downtown Tokyo at nightime" username="Vinh Nguyen"/>
+       <sec.Card photo={image3} prompt="Downtown Tokyo at nightime" name="Vinh Nguyen"/>
       </Carousel.Item>
     </Carousel>
   );

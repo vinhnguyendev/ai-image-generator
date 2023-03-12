@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import * as sec from "../";
 
-export function Login({setLogedIn}){
+export function Login(){
   return (
     <div className='container  d-flex align-items-center justify-content-center p-0 my-5'>
       <div className='row w-100 h-auto align-items-center justify-content-center'>
@@ -24,7 +24,7 @@ export function Login({setLogedIn}){
         Submit
       </Button>
       </div>
-      <sec.LinksAuth  setLogedIn={setLogedIn}/>
+      <sec.LinksAuth />
       <div className='text-center'>
       <a className='px-1' href='http://127.0.0.1:5500/client/public/policy.html'>Privacy policy</a>
       </div>

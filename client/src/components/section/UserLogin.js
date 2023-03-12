@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Avatar } from "./Avatar";
 import { Link } from 'react-router-dom';
 import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
 
 const cookies = new Cookies();
 
-export function UserLogin({logedIn}) {
-
+export function UserLogin() {
+  const navigate = useNavigate();
   const [signingUp, setSigningUp] = useState(false);
+
   const [form, setForm] = useState({
     email: "test@test.com",
     firstname: "test",
@@ -15,7 +17,6 @@ export function UserLogin({logedIn}) {
     password: "test12345",
   });
 
-  //need to create separate component
   const handleSubmit = async () => {
     if (signingUp) {
       try {
@@ -34,11 +35,18 @@ export function UserLogin({logedIn}) {
     }
   };
 
+  const handleLogOut = () => {
+    cookies.remove('name');
+    cookies.remove('id');
+    cookies.remove('email');
+    navigate(`/login`)
+  }
+
   return (
     <div id="login-nav" className="rounded-5">
-      {logedIn ? (
+      {cookies.get("name")? (
         <div id="user-nav" className="d-flex flex-row">
-          <Avatar username={cookies.get("name")} />
+          <Avatar  username={cookies.get('name')} />
           <span
             id="login_breaker"
             className="d-flex flex-column justify-content-center px-1"
@@ -46,7 +54,11 @@ export function UserLogin({logedIn}) {
             {" "}
             |{" "}
           </span>
-          <button id="logout-btn" className="border-0 rounded-5 px-2 py-1">
+          <button 
+          id="logout-btn" 
+          className="border-0 rounded-5 px-2 py-1"
+          onClick={handleLogOut}
+          >
             Log out
           </button>
         </div>

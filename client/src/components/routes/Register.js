@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import * as sec from "../";
 
-export function Register(setLogedIn){
+export function Register(){
   return (
     <div className='container d-flex align-items-center justify-content-center p-0 my-5'>
     <div className='row w-100 align-items-center justify-content-center'>
@@ -54,7 +54,7 @@ export function Register(setLogedIn){
         Submit
       </Button>
       </div>
-      <sec.LinksAuth setLogedIn={setLogedIn}/>
+      <sec.LinksAuth />
       <div className='text-center'>
       <a className='px-1' href='http://127.0.0.1:5500/client/public/policy.html'>Privacy policy</a>
       </div>
