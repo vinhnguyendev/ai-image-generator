@@ -6,6 +6,7 @@ import * as dotenv from "dotenv";
 import connectDB from "./mongodb/connect.js";
 import postRoutes from "./controller/postRoutes.js"
 import dalleRoutes from "./controller/dalleRoutes.js"
+import getUser from "./controller/getUser.js"
 
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(express.json({ limit: '50mb' }));
 
 app.use('/api/v1/post', postRoutes);
 app.use('/api/v1/dalle', dalleRoutes);
+app.use('/api/v1/user', getUser);
 
 
 app.get("/", async (req, res) => {

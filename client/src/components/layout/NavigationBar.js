@@ -1,12 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import * as sec from "../";
 
 import { Link } from 'react-router-dom';
 
-export function NavigationBar() {
+export function NavigationBar({logedIn}) {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="body" expand="lg" className='border-bottom p-3'>
       <Container>
         <Navbar.Brand className='fs-4 fw-bold' href="#home"><i className="bi bi-palette2 p-2"></i>pixolabAI</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -16,6 +17,7 @@ export function NavigationBar() {
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`gallery`}>Gallery</Link>
             <Link className='col-lg-5 text-decoration-none text-dark fs-5' to={`about`}>About</Link>
           </Nav>
+          <Nav className=""><sec.UserLogin logedIn={logedIn}/></Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

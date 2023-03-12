@@ -1,59 +1,74 @@
-import Avvvatars from 'avvvatars-react'
+import * as sec from "../";
+import { FcLike } from "react-icons/fc";
+import { RxDownload } from "react-icons/rx"
+import { FcLikePlaceholder } from "react-icons/fc"
+import { useState } from "react";
 
-export const Card = ({ prompt, photo, username, saveAs }) => {
-
-  //downloadBtnEvent  
+export const Card = ({ prompt, photo, name, saveAs }) => {
+  const [like, setLike] = useState(false)
+  //downloadBtnEvent
   const downloadImage = (prompt, photo, e) => {
     e.preventDefault();
     saveAs(photo, `${prompt}.png`);
   };
 
-
-
-function MyAvatar(username) {
-    console.log(username)
-    return (
-      <Avvvatars value={username.username} />
-    )
-  }
-
   return (
-  
-      <div className="card d-inline-flex align-items-start" id="card">
-        <div className="position-relative">
+    <div className="card d-inline-flex align-items-start" id="card">
+      <div className="position-relative">
         <img
           id="image-container"
           className="w-auto h-auto img-fluid"
           src={photo}
           alt={prompt}
-          style={{ borderTopLeftRadius: '4%', borderTopRightRadius: '4%'}}
+          style={{ borderTopLeftRadius: "4%", borderTopRightRadius: "4%" }}
         />
-        {saveAs? (
-        <button
-          className="position-absolute bottom-0 end-0 m-3 rounded-5 bg-primary border-0"
-          id="download-btn"
-          onClick={(e) => downloadImage(prompt, photo, e)}
-        >
-          <i className="bi bi-download p-2 text-light fs-5"></i>
-        </button>
-        ) : null
-        }
-        </div>
+      </div>
 
-        <div
+      <div
         //   className="container position-absolute top-0 start-0 text-start m-3 text-light border-0 bg-primary rounded-3"
-          id="card-detail"
-          className="w-100 border bg-body"
-          style={{ borderBottomLeftRadius: '15px', borderBottomRightRadius: '15px'}}
+        id="card-detail"
+        className="w-100 border bg-body"
+        style={{
+          borderBottomLeftRadius: "15px",
+          borderBottomRightRadius: "15px",
+        }}
+      >
+        <div className="container flex-column w-100 p-3 text-start">
+          <div className="row fw-bold d-flex justify-content-between">
+            <div className="col-5">
+            <sec.Avatar username={name} />
+            </div>
+            {saveAs ? (
+            <div className="col-5 d-flex flex-row justify-content-end">
+            <button
+              className="bg-body p-1 border-0 "
+             
+              onClick={(e) => downloadImage(prompt, photo, e)}
+            >
+              <i className="p-2 text-primary fs-5"><RxDownload/></i>
+            </button>
+
+          {like?(
+            <button
+              className= " bg-body border-0"
+              onClick={() =>setLike(false)}
+            >
+              <i className="bi p-2 fs-5 "><FcLike /></i>
+            </button>
+          ) : 
+          <button
+          className= " bg-body border-0"
+          onClick={() => setLike(true)}
         >
-          <div className="container flex-column w-100 p-3 text-start">
-            <span className="fw-bold d-flex gap-2">
-            <MyAvatar username={username}/><span className='d-flex flex-column justify-content-center'>{username}</span>
-            </span>
-            <span className='ps-3 ms-3'>"{prompt}"</span>
+          <i className="bi p-2 fs-5 "><FcLikePlaceholder /></i>
+        </button>
+          }
+            </div>
+            ): null}
           </div>
+          <span className="ps-3 ms-3">"{prompt}"</span>
         </div>
       </div>
-   
+    </div>
   );
 };

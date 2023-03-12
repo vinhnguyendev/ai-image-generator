@@ -26,6 +26,7 @@ export function ContactForm() {
       <div className="d-flex flex-column flex-lg-row flex-md-row flex-sm-column justify-content-end">
         <button className="btn btn-primary">SUBMIT</button>
       </div>
+      
     </form>
   );
 }

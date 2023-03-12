@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 import preview from "../../assets/preview.png";
+import Cookies from "universal-cookie";
+
+
+const cookies = new Cookies();
 
 export function CreatePost() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    name: "",
+    id: cookies.get("id"),
+    name: cookies.get("name"),
     prompt: "",
     size: "",
     photo: "",
@@ -58,7 +63,9 @@ export function CreatePost() {
 
   const handleAddPost = async (event) => {
     event.preventDefault();
-    if (form.prompt && form.photo) {
+    console.log('handlepost')
+   
+    if(form.prompt && form.photo && cookies.get("name")) {
       setLoading(true);
       try {
         const response = await fetch("http://localhost:5050/api/v1/post", {
@@ -74,9 +81,12 @@ export function CreatePost() {
         alert(error);
       } finally {
         setLoading(false);
-      }
+      } 
+    }else{
+      navigate('/login')
     }
-  };
+};
+
 
   const handleFormOnChange = (event) => {
     setForm({ ...form, prompt: event.target.value });
