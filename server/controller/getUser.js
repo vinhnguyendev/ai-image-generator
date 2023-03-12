@@ -36,10 +36,7 @@ router.route("/").post(async (req, res) => {
   } else if (data.email && data.password && data.firstname && data.lastname) {
     try {
       const { firstname, lastname, email, password } = data;
-      console.log(req.body);
       const hashedPassword = await bcrypt.hash(password, 10);
-      console.log(hashedPassword);
-
       const newUser = await User.create({
         email: email,
         firstname: firstname,

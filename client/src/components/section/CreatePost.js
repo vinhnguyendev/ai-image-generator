@@ -63,8 +63,6 @@ export function CreatePost() {
 
   const handleAddPost = async (event) => {
     event.preventDefault();
-    console.log('handlepost')
-   
     if(form.prompt && form.photo && cookies.get("name")) {
       setLoading(true);
       try {

@@ -15,13 +15,9 @@ export function LinksAuth() {
   const GoogleLogin = async (e) => {
     e.preventDefault();
     try {
-      console.log("Hi Google");
       const result = await signInWithPopup(auth, googleProvider);
     
       const { uid, email, displayName } = result.user;
-      console.log(uid);
-      console.log(email);
-      console.log(displayName);
        //set up cookie
       cookies.set("id",uid, cookieOptions)
       cookies.set("email",email, cookieOptions)
