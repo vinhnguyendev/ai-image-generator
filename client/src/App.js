@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -18,6 +18,8 @@ function App() {
       <Route path="/about" element={<pages.About/>}/>
       <Route path="/login" element={<pages.Login />}/>
       <Route path="/register" element={<pages.Register />}/>
+      <Route path="/policy" element={<pages.Policy />}/>
+      <Route path="/ServerError" element={<pages.ServerError />}/>
       </Routes>
     </div>
       <lay.Footer/>

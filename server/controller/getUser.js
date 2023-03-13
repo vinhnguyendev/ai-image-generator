@@ -12,8 +12,30 @@ const router = express.Router();
 router.route("/").post(async (req, res) => {
   console.log("Mongodb POST End-point hit! ");
   const data = req.body;
+  console.log(data);
+  //signup
+  if (data.email && data.password && data.firstname && data.lastname) {
+    console.log("signup hits");
+    try {
+      const { firstname, lastname, email, password } = data;
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const newUser = await User.create({
+        email: email,
+        firstname: firstname,
+        lastname: lastname,
+        password: hashedPassword,
+      });
+      console.log(newUser);
+      const users = await User.find({ email: email });
+      const response = users[0]
+      res.status(201).json({ success: true, data: { _id: response._id, firstname: response.firstname, lastname: response.lastname } });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ success: false, message: error });
+    }
+  }
   //login
-  if (data.email && data.password) {
+  else if (data.email && data.password) {
     try {
       const { email, password } = data;
       const users = await User.find({ email: email });
@@ -30,24 +52,6 @@ router.route("/").post(async (req, res) => {
       }
     } catch (error) {
       res.status(500).json({ sucess: false, message: error });
-    }
-
-    //signup
-  } else if (data.email && data.password && data.firstname && data.lastname) {
-    try {
-      const { firstname, lastname, email, password } = data;
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const newUser = await User.create({
-        email: email,
-        firstname: firstname,
-        lastname: lastname,
-        password: hashedPassword,
-      });
-      console.log(newUser);
-      res.status(201).json({ success: true, data: newUser });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ success: false, message: error });
     }
   }
 });

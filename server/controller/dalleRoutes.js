@@ -16,7 +16,6 @@ router.route("/").post(async (req, res) => {
     console.log('DaLL-E POST ENDPOINT HIT!')
   try {
     const { prompt, size } = req.body;
-    console.log(size)
     const openAiresponse = await openai.createImage({
       prompt,
       n: 1,

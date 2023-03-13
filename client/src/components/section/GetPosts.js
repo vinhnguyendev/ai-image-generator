@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import * as sec from "../";
+import Spinner from "react-bootstrap/Spinner";
 
 export function GetPosts() {
   const [loading, setLoading] = useState(false);
@@ -38,7 +39,10 @@ export function GetPosts() {
   }, []);
 
   return loading ? (
-    <h2>No Posts yet</h2>
+    <div className="d-flex flex-row justify-content-center gap-4">
+    <h2>Loading</h2>
+    <Spinner className="d-flex flex-column justify-content-center" animation="border" variant="primary"/>
+    </div>
   ) : (
     <div className="grid d-flex flex-wrap flex-row justify-content-center w-100 p-0 m-0">
       <RenderCards data={allPosts} title="No Post yet" />
