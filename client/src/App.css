@@ -23,6 +23,10 @@
     display: none;
 }
 
+.nav-link.active {
+    font-weight: bold;
+  }
+
 .carousel-indicators button{
     background-color: #0d6efd !important;
     color: #0d6efd !important;
@@ -41,6 +45,7 @@
 }
 
 
+
 @media screen and (max-width: 992px) {
     /* Button styles only for collapsed navbar */
     #login-nav{
@@ -52,5 +57,12 @@
         justify-content: center;
         background: none;
         margin-top: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    /* Button styles only for collapsed navbar */
+    #card_username{
+        font-size: 1rem;
     }
 }

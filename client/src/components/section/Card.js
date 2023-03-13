@@ -35,14 +35,13 @@ export const Card = ({ prompt, photo, name, saveAs }) => {
       >
         <div className="container flex-column w-100 p-3 text-start">
           <div className="row fw-bold d-flex justify-content-between">
-            <div className="col-5">
+            <div className="col-8" id="card_username">
             <sec.Avatar username={name} />
             </div>
             {saveAs ? (
-            <div className="col-5 d-flex flex-row justify-content-end">
+            <div className="col-4 d-flex flex-row justify-content-end">
             <button
               className="bg-body p-1 border-0 "
-             
               onClick={(e) => downloadImage(prompt, photo, e)}
             >
               <i className="p-2 text-primary fs-5"><RxDownload/></i>
@@ -66,7 +65,7 @@ export const Card = ({ prompt, photo, name, saveAs }) => {
             </div>
             ): null}
           </div>
-          <span className="ps-3 ms-3">"{prompt}"</span>
+          <span className="ms-3 text-secondary">{prompt}</span>
         </div>
       </div>
     </div>

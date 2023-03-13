@@ -14,6 +14,8 @@ export function About() {
         hasButtons
         button1Text="GET STARTED NOW"
         button2Text="SIGN UP"
+        button1Link="/"
+        button2Link="/login"
       />
       <sec.ControlledCarousel/>
       <div>
