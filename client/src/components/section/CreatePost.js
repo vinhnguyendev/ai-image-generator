@@ -42,7 +42,7 @@ export function CreatePost() {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch(`http://localhost:5050/api/v1/dalle`, {
+        const response = await fetch(`https://pixolabai-server.onrender.com/api/v1/dalle`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export function CreatePost() {
     if(form.prompt && form.photo && cookies.get("name")) {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:5050/api/v1/post", {
+        const response = await fetch("https://pixolabai-server.onrender.com/api/v1/post", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

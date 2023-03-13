@@ -20,7 +20,7 @@ export function UserLogin() {
   const handleSubmit = async () => {
     if (signingUp) {
       try {
-        const response = await fetch("http://localhost:5050/api/v1/user", {
+        const response = await fetch("https://pixolabai-server.onrender.com/api/v1/user", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
