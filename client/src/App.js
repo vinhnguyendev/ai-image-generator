@@ -18,8 +18,9 @@ function App() {
       <Route path="/about" element={<pages.About/>}/>
       <Route path="/login" element={<pages.Login />}/>
       <Route path="/register" element={<pages.Register />}/>
-      <Route path="/policy" element={<pages.Policy />}/>
-      <Route path="/ServerError" element={<pages.ServerError />}/>
+      <Route path="/copyright-policy" element={<pages.Policy />}/>
+      <Route path="/server-error" element={<pages.ServerError />}/>
+      <Route path="/content-policy" element={<pages.ContentPolicy />}/>
       </Routes>
     </div>
       <lay.Footer/>

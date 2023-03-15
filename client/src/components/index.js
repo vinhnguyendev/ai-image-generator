@@ -16,6 +16,7 @@ export { ControlledCarousel } from './section/ControlledCarousel'
 export { Avatar } from './section/Avatar'
 export { UserLogin } from './section/UserLogin'
 export { LinksAuth } from './section/LinksAuth'
+export { ContentPolicyWarning } from './section/ContentPolicyWarning'
 
 
 //routes export
@@ -26,3 +27,4 @@ export { Login } from './routes/Login'
 export { Register } from './routes/Register'
 export { Policy } from './routes/Policy'
 export { ServerError } from './routes/ServerError'
+export { ContentPolicy } from './routes/ContentPolicy'

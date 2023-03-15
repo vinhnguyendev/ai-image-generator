@@ -58,7 +58,7 @@ export function Login(){
       //redirect
       navigate('/');
       }catch(error){
-        navigate(`/ServerError`)
+        navigate(`/server-error`)
       }
       setIsLoading(false)
     } else {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { saveAs } from "file-saver";
 import * as sec from "../";
 import Spinner from "react-bootstrap/Spinner";
+import LogoLoader from "../../assets/logo-loader.gif"
 
 export function GetPosts() {
   const [loading, setLoading] = useState(false);
@@ -17,7 +18,7 @@ export function GetPosts() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://pixolabai-server.onrender.com/api/v1/post", {
+      const response = await fetch("http://localhost:5050/api/v1/post", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -39,9 +40,10 @@ export function GetPosts() {
   }, []);
 
   return loading ? (
-    <div className="d-flex flex-row justify-content-center gap-4">
-    <h2>Loading</h2>
-    <Spinner className="d-flex flex-column justify-content-center" animation="border" variant="primary"/>
+    <div id="logo" className="position-absolute top-50 start-50 translate-middle d-flex-inline">
+    <img  src={LogoLoader} style={{height:"100px", width:"auto"}}></img>
+    <h2 className="my-5">Loading posts, please wait...</h2>
+    {/* <Spinner className="d-flex flex-column justify-content-center" animation="border" variant="primary"/> */}
     </div>
   ) : (
     <div className="grid d-flex flex-wrap flex-row justify-content-center w-100 p-0 m-0">

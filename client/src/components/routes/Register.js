@@ -77,7 +77,7 @@ export function Register() {
         //redirect
         navigate("/");
       } catch (error) {
-        navigate("/ServerError")
+        navigate("/server-error")
       }
     }
     //Loading stops

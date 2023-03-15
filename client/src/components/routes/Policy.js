@@ -1,6 +1,6 @@
 export function Policy (){
     return (
-<>
+<div className="container p-2 py-4 fs-5 text-start">
   <style
     dangerouslySetInnerHTML={{
       __html:
@@ -36,12 +36,7 @@ export function Policy (){
     <div>
       <br />
     </div>
-    <div>
-      <br />
-    </div>
-    <div>
-      <br />
-    </div>
+
     <div style={{ lineHeight: "1.5" }}>
       <span style={{ color: "rgb(127, 127, 127)" }}>
         <span style={{ color: "rgb(89, 89, 89)", fontSize: 15 }}>
@@ -17422,7 +17417,7 @@ export function Policy (){
       </div>
     </div>
   </div>
-</>
+</div>
 
     )
 }

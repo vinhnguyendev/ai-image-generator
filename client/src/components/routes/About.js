@@ -27,7 +27,7 @@ export function About() {
           preview = {preview}
         />
         <sec.BlogCard
-          title="PixolabAI a platform that helps you to create a perfect Image"
+          title="PixolabAI is a platform that helps you to create a perfect Image"
           subtitle="By leveraging the power of AI, this platform could help individuals save time and effort in finding the perfect image for their project or work, while also providing insights and recommendations for image modifications and enhancements."
           image = {solution}
           preview = {preview}
