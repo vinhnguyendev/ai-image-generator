@@ -18,7 +18,7 @@ export function GetPosts() {
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5050/api/v1/post", {
+      const response = await fetch("https://pixolabai-server.onrender.com/api/v1/post", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
