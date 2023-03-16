@@ -96,7 +96,7 @@ export function Login(){
       </div>
       <sec.LinksAuth />
       <div className='text-center'>
-      <Link className='px-1' to={`/policy`}>Privacy policy</Link>
+      <Link className='px-1' to={`/copyright-policy`}>Privacy policy</Link>
       </div>
     </Form>
   ): (

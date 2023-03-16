@@ -205,7 +205,7 @@ export function Register() {
             </div>
             <sec.LinksAuth />
             <div className="text-center">
-              <Link className="px-1" to={`/policy`}>
+              <Link className="px-1" to={`/copyright-policy`}>
                 Privacy policy
               </Link>
             </div>
